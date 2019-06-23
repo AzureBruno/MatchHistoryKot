@@ -1,0 +1,28 @@
+[  
+   {  
+      'team':200,
+      'kills':18,
+      'deaths':10,
+      'assists':18,
+      'itens':{  
+         'item0id':3116,
+         'item0URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3116.png',
+         'item1id':3157,
+         'item1URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3157.png',
+         'item2id':3151,
+         'item2URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3151.png',
+         'item3id':3065,
+         'item3URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3065.png',
+         'item4id':3047,
+         'item4URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3047.png',
+         'item5id':3089,
+         'item5URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/3089.png',
+         'item6id':2052,
+         'item6URL':'https://ddragon.leagueoflegends.com/cdn/9.12.1/img/item/2052.png'
+      },
+      'win':'victory',
+      'CS':80,
+      'championId':82,
+      'championPNG':'http://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/82.png'
+   }
+]
