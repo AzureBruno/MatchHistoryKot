@@ -15,11 +15,12 @@ class MainActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener{
             val summonerName = edt_summonerName.text.toString()
-            nextActivity(HistoryActivity(summonerName))
+            nextActivity(HistoryActivity(), summonerName)
         }
     }
-    fun nextActivity(Activity : AppCompatActivity) {
+    fun nextActivity(Activity : AppCompatActivity, EXTRA : String) {
         val intent = Intent(applicationContext, Activity::class.java)
+        intent.putExtra("Summoner",EXTRA)
         startActivity(intent)
     }
 }

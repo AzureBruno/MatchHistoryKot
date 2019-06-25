@@ -4,9 +4,10 @@
                                              android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-            android:layout_width="395dp"
-            android:layout_height="715dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0"
+            android:layout_height="0" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" tools:listitem="@layout/activity_list_item"/>
+            app:layout_constraintBottom_toBottomOf="parent" tools:listitem="@layout/activity_list_item"
+            android:id="@+id/match_history"/>
 </android.support.constraint.ConstraintLayout>

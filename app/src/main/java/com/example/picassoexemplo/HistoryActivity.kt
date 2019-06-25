@@ -2,44 +2,29 @@ package com.example.picassoexemplo
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.view.View
-import sun.util.locale.provider.LocaleProviderAdapter.getAdapter
-import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.android.extension.responseJson
-import com.github.kittinunf.fuel.core.FuelManager
+import com.github.kittinunf.fuel.httpGet
+import kotlinx.android.synthetic.main.activity_history.*
 
-class HistoryActivity (summonerName : String) : AppCompatActivity() {
+class HistoryActivity  : AppCompatActivity() {
 
-    var tvGetResponse: TextView? = null
-    var tvPostResponse: TextView? = null
-    var progress: ProgressDialog? = null
+    val baseURL = "http://azurebruno.pythonanywhere.com/match_history/"
+    var URL = baseURL + intent.getSerializableExtra("Summoner")
+    var Matches = ArrayList<Match>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initViewsAndWidgets()
-        setContentView(R.layout.activity_main)
         super.onCreate(savedInstanceState)
-        FuelManager.instance.basePath = "http://azurebruno.pythonanywhere.com/match_history/"
-}
+        setContentView(R.layout.activity_history)
+        val recyclerView = match_history
 
-    private fun initViewsAndWidgets() {
-        tvGetResponse = findViewById(R.id.tvGetResponse)
-        tvPostResponse = findViewById(R.id.tvPostResponse)
-        progress = ProgressDialog(this)
-        progress!!.setTitle("Kotlin Fuel Http Sample")
-        progress!!.setMessage("Loading...")
-    }
-
-    fun httpGetJson(view: View) {
-        try {
-            progress!!.show()
-            Fuel.get("summonerName").responseJson { request, response, result ->
-                tvGetResponse!!.text = result.get().content
+        URL.httpGet().responseObject(Match.Deserializer()) { request, response, result ->
+            val (match, err) = result
+            //Add to ArrayList
+            match?.forEach { match ->
+                Matches.add(match)
             }
-        } catch (e: Exception) {
-            tvGetResponse!!.text = e.message
-        } finally {
-            progress!!.dismiss()
+            println(Matches)
         }
+        recyclerView.adapter = MatchListAdapter(Matches, this)
+
     }
 }
