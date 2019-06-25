@@ -7,8 +7,8 @@ import kotlinx.android.synthetic.main.activity_history.*
 
 class HistoryActivity  : AppCompatActivity() {
 
-    val baseURL = "http://azurebruno.pythonanywhere.com/match_history/"
-    var URL = baseURL + intent.getSerializableExtra("Summoner")
+    val baseURL = "http://azurebruno.pythonanywhere.com/match_history/azurebruno"
+    var URL = baseURL //+ intent.getSerializableExtra("SUMMONER")
     var Matches = ArrayList<Match>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

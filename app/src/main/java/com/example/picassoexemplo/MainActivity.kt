@@ -3,8 +3,6 @@ package com.example.picassoexemplo
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,12 +13,14 @@ class MainActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener{
             val summonerName = edt_summonerName.text.toString()
-            nextActivity(HistoryActivity(), summonerName)
+            val intent = Intent(applicationContext, HistoryActivity::class.java)
+            intent.putExtra("SUMMONER", summonerName)
+            startActivity(intent)
         }
     }
-    fun nextActivity(Activity : AppCompatActivity, EXTRA : String) {
-        val intent = Intent(applicationContext, Activity::class.java)
-        intent.putExtra("Summoner",EXTRA)
-        startActivity(intent)
-    }
+//    private fun proxActivity(Activity : AppCompatActivity, extra : String) {
+//        val intent = Intent(applicationContext, Activity::class.java)
+//        intent.putExtra(extra, "summoner")
+//        startActivity(intent)
+//    }
 }

@@ -9,25 +9,23 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_list_item.view.*
 
-class MatchListAdapter(private val matches: List<Match>,
-                       private val context: Context
-) : Adapter<MatchListAdapter.ViewHolder>() {
-
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        val match = matches[position]
-        holder?.let {
-            it.bindView(match)
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.activity_list_item, parent, false)
+class MatchListAdapter(private val matches: List<Match>, private val context: Context) : Adapter<MatchListAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.activity_list_item, p0, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return matches.size
     }
+
+    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
+        val match = matches[p1]
+        p0?.let {
+            it.bindView(match)
+        }
+    }
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
