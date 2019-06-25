@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_list_item.view.*
 
 class MatchListAdapter(private val matches: List<Match>, private val context: Context) : Adapter<MatchListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.activity_list_item, p0, false)
+        val view = LayoutInflater.from(p0.context).inflate(R.layout.activity_list_item, p0, false)!!
         return ViewHolder(view)
     }
 
