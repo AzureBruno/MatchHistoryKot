@@ -46,7 +46,7 @@ class MatchListAdapter(private val matches: List<Match>, private val context: Co
                 .load(match.championPNG)
                 .into(imageChampion)
             textQueue.text = match.win
-            textScore.text = match.kills.toString() + "/" + match.deaths.toString() + "/" + match.assists.toString()
+            textScore.text = "${match.kills}/${match.deaths}/${match.assists}"
             /*
                 Load item images
                  */
