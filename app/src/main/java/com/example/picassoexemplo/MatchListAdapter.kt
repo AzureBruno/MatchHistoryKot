@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_list_item.view.*
 
@@ -41,40 +42,23 @@ class MatchListAdapter(private val matches: List<Match>, private val context: Co
             val imgItem4 = itemView.img_item4
             val imgItem5 = itemView.img_item5
 
-            Picasso
-                .get()
-                .load(match.championPNG)
-                .into(imageChampion)
+            updateWithURL(match.championPNG, imageChampion)
             textQueue.text = match.win
-            textScore.text = "${match.kills}/${match.deaths}/${match.assists}"
+            textScore.text = "${match.kills}/${match.deaths}/${match.assists} CS: /${match.cs}"
             /*
                 Load item images
                  */
-            Picasso
-                .get()
-                .load(match.item0URL)
-                .into(imgItem0)
-            Picasso
-                .get()
-                .load(match.item1URL)
-                .into(imgItem1)
-            Picasso
-                .get()
-                .load(match.item2URL)
-                .into(imgItem2)
-            Picasso
-                .get()
-                .load(match.item3URL)
-                .into(imgItem3)
-            Picasso
-                .get()
-                .load(match.item4URL)
-                .into(imgItem4)
-            Picasso
-                .get()
-                .load(match.item5URL)
-                .into(imgItem5)
+            updateWithURL(match.item0URL, imgItem0)
+            updateWithURL(match.item1URL, imgItem1)
+            updateWithURL(match.item2URL, imgItem2)
+            updateWithURL(match.item3URL, imgItem3)
+            updateWithURL(match.item4URL, imgItem4)
+            updateWithURL(match.item5URL, imgItem5)
         }
 
+        private fun updateWithURL (url: String, imageView: ImageView) {
+            Picasso.get().load(url).placeholder(R.mipmap.ic_launcher_round).into(imageView)
+        }
     }
+
 }

@@ -1,9 +1,11 @@
 package com.example.picassoexemplo
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.view.View
 import com.github.kittinunf.fuel.httpGet
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -41,6 +43,10 @@ class HistoryActivity  : AppCompatActivity() {
                 println("teste3"+match.getJSONObject(i))
                 Matches.add(Fatiar(match.getJSONObject(i)))
                 i++
+            }
+            if (i>= match.length()) {
+                recyclerView.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
             }
 
         }
