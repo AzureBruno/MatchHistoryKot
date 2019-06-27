@@ -10,8 +10,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp" app:srcCompat="@mipmap/ic_launcher"
             android:id="@+id/img_item5"
-            app:layout_constraintStart_toEndOf="@+id/img_item4" android:layout_marginEnd="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_item4"
             app:layout_constraintBottom_toBottomOf="@+id/img_item4"/>
     <ImageView
             android:layout_width="40dp"
@@ -40,29 +39,52 @@
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
-            android:id="@+id/image_champion" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:id="@+id/image_champion"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintTop_toBottomOf="@+id/text_queue"
+            android:layout_marginTop="16dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/text_queue"
-            app:layout_constraintTop_toTopOf="@+id/image_champion" app:layout_constraintStart_toEndOf="@+id/image_champion"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            android:id="@+id/text_win"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_champion"
+            app:layout_constraintStart_toEndOf="@+id/image_champion" android:layout_marginStart="8dp"
+            android:fontFamily="@font/aldrich" android:textSize="20sp"
+            android:textColor="@android:color/primary_text_dark"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/text_score" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_queue" app:layout_constraintStart_toStartOf="@+id/text_queue"
-            app:layout_constraintEnd_toEndOf="@+id/text_queue"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/text_win" app:layout_constraintStart_toStartOf="@+id/text_win"
+            app:layout_constraintEnd_toEndOf="@+id/text_win"
+            android:fontFamily="@font/aldrich"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+            android:textColor="@android:color/primary_text_dark"/>
     <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp" app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/img_item0" android:layout_marginStart="15dp"
+            android:id="@+id/img_item0" android:layout_marginStart="16dp"
             app:layout_constraintStart_toEndOf="@+id/image_champion"
-            app:layout_constraintBottom_toBottomOf="@+id/image_champion"/>
+            app:layout_constraintTop_toTopOf="@+id/image_champion"
+            app:layout_constraintBottom_toBottomOf="@+id/image_champion" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:drawable/divider_horizontal_dark"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_queue"
+            android:fontFamily="@font/aldrich"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@+id/image_champion"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="20sp" android:layout_marginTop="8dp"/>
 </android.support.constraint.ConstraintLayout>

@@ -9,5 +9,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" tools:listitem="@layout/activity_list_item"
-            android:id="@+id/match_history"/>
+            android:id="@+id/match_history"
+            android:visibility="gone"/>
+
+    <TextView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:text="@string/loading" android:textSize="30sp" android:textAlignment="textStart"
+            android:textStyle="bold" android:gravity="center|center_horizontal"/>
 </android.support.constraint.ConstraintLayout>

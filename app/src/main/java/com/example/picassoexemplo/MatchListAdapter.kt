@@ -10,10 +10,11 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_list_item.view.*
 
-class MatchListAdapter(private val matches: List<Match>, private val context: Context) : Adapter<MatchListAdapter.ViewHolder>() {
+class MatchListAdapter(private val matches: List<Match>, private val context: Context) :
+    Adapter<MatchListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.activity_list_item, p0, false)!!
-        return ViewHolder(view)
+        return ViewHolder(view, context)
     }
 
     override fun getItemCount(): Int {
@@ -28,13 +29,14 @@ class MatchListAdapter(private val matches: List<Match>, private val context: Co
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+    class ViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
+        val context = context
         fun bindView(match: Match) {
 
             val imageChampion = itemView.image_champion
-            val textQueue = itemView.text_queue
+            val textWin = itemView.text_win
             val textScore = itemView.text_score
+            val textQueue = itemView.text_queue
             val imgItem0 = itemView.img_item0
             val imgItem1 = itemView.img_item1
             val imgItem2 = itemView.img_item2
@@ -43,8 +45,10 @@ class MatchListAdapter(private val matches: List<Match>, private val context: Co
             val imgItem5 = itemView.img_item5
 
             updateWithURL(match.championPNG, imageChampion)
-            textQueue.text = match.win
-            textScore.text = "${match.kills}/${match.deaths}/${match.assists} CS: /${match.cs}"
+            textWin.text = match.win.capitalize()
+            textQueue.text = match.queue
+            defineBackground(match)
+            textScore.text = "KDA: ${match.kills}/${match.deaths}/${match.assists} CS: ${match.cs}"
             /*
                 Load item images
                  */
@@ -56,8 +60,16 @@ class MatchListAdapter(private val matches: List<Match>, private val context: Co
             updateWithURL(match.item5URL, imgItem5)
         }
 
-        private fun updateWithURL (url: String, imageView: ImageView) {
-            Picasso.get().load(url).placeholder(R.mipmap.ic_launcher_round).into(imageView)
+        private fun defineBackground(match: Match) {
+            if (match.win == "victory") {
+                itemView.setBackgroundColor(context.resources.getColor(R.color.win))
+            } else {
+                itemView.setBackgroundColor(context.resources.getColor(R.color.lose))
+            }
+        }
+
+        private fun updateWithURL(url: String, imageView: ImageView) {
+            Picasso.get().load(url).placeholder(R.mipmap.empty_item).into(imageView)
         }
     }
 

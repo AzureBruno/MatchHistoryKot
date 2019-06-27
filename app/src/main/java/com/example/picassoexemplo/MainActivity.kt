@@ -18,9 +18,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-//    private fun proxActivity(Activity : AppCompatActivity, extra : String) {
-//        val intent = Intent(applicationContext, Activity::class.java)
-//        intent.putExtra(extra, "summoner")
-//        startActivity(intent)
-//    }
+
 }
