@@ -16,7 +16,8 @@ fun Fatiar(json: JSONObject): Match {
         json.getString("item2URL"),
         json.getString("item3URL"),
         json.getString("item4URL"),
-        json.getString("item5URL")
+        json.getString("item5URL"),
+        json.getString("match")
     )
 }
 
@@ -33,5 +34,6 @@ data class Match(
     val item2URL: String,
     val item3URL: String,
     val item4URL: String,
-    val item5URL: String
+    val item5URL: String,
+    val match: String
 )
