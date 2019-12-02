@@ -3,4 +3,6 @@
     <string name="summonername">SummonerName</string>
     <string name="btn">Login</string>
     <string name="loading">Aguarde Um Instante...</string>
+    <string name="sobre_text">App feito por Bruno Zernik de Assumpção Aprigliano para fins educativos, não utilizar para fins comerciais. (2019)</string>
+    <string name="back">Voltar</string>
 </resources>

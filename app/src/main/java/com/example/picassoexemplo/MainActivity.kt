@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("SUMMONER", summonerName)
             startActivity(intent)
         }
+
+        btn_sobre.setOnClickListener {
+            val intent = Intent(applicationContext, SobreActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
